@@ -5,10 +5,10 @@
 			<div id="headerLogo"><a rel="nofollow" href= <%= root_path %>><%= image_tag("http://dealsoutlet.net/media/logo/dealsoutlet.gif", alt: "Deals Outlet", boarder: "0")%></a></div>  
 			<div id="headerSearch">
 			  <div id="searchBox">
-				<form method="get" action="/show/search">
+				<form onsubmit="return searchDeals()">
 				<input id="search" type="text" value="Search deals" name="search" onblur="if(this.value=='') { this.value='Search deals';}" onfocus="if(this.value=='Search deals') this.value='';"/>
+				<input type="submit" value="Search" />
 				</form>
-				<input type="submit" value="Search" onclick="searchDeals()" />
 			  </div>
 			</div>
 			<div><%= image_tag("logo/top_banner_r.gif", border: "0") %></div>

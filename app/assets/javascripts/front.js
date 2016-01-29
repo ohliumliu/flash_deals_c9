@@ -80,6 +80,7 @@
 				$("#contentCenter").html(data);
 			 }
 		}); 		
+		return false;
 	}
 
 
