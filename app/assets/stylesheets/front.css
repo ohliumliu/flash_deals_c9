@@ -1,0 +1,488 @@
+@CHARSET "UTF-8";
+
+#headerBanner {
+	width:1000px;
+	float:left;			
+}
+
+#headerLogo {
+	width:350px;
+	float:left;
+	padding:11px 0px;
+	background:	url(http://www.dealsoutlet.net/media/logo/top_banner_m.png) repeat-x;		
+}
+
+#searchBox {
+	float:left;
+	padding:35px 0px 0px 0px;
+	margin:0px;
+}
+
+#search {
+	float:left;
+	width:240px;
+	padding:0px;
+	margin:0px;
+}
+
+#headerSearch {
+	height:84px;
+	width:584px;
+	float:left;			
+	text-align:left;
+	background:	url(http://www.dealsoutlet.net/media/logo/top_banner_m.png) repeat-x;		
+}
+
+.topMenu {
+	float:left;
+	background:	url(http://www.dealsoutlet.net/media/logo/top_menu_m.png) repeat-x;
+	height:24px;
+	text-align:center;
+}
+
+.bulletYellow {
+	padding: 10px 0px 0px 0px;
+}
+
+#topMenuShim {
+	width:625px;
+	float:left;			
+}
+
+.topMenu a {
+	text-decoration:none;
+	color:#e9f1f8;
+	font-size:14px;
+	padding:0px 5px;
+	font-weight:bold;
+}
+
+h1 {
+	padding:0px 200px 3px 225px;
+	margin:10px 0px 0px 0px;
+	float:left;
+	font-weight:bold;
+	font-size:15px;
+	color:#435570;
+}
+
+.leftSectionHead {
+	float:left;
+	height:27px;
+	width:210px;
+}
+
+.leftSectionTitle {
+	float:left;
+	width:174px;
+	background:	url(http://www.dealsoutlet.net/media/logo/category_tab_m.png) repeat-x;
+}
+
+.sectionTitleText {
+	color:#333333;
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+	padding:9px 0px;
+}
+
+.listCatalog {
+	font-size:14px;
+	font-weight:bold;
+	float:left;
+	text-align:right;
+	padding:10px 0px 0px 0px;
+}
+
+.horizontalSpace20 {
+	float:left;	
+	height:20px;
+	width:95%;
+}
+
+.horizontalSpace10 {
+	float:left;	
+	height:10px;
+	width:95%;
+}
+
+.rightSectionTitle {
+	float:left;
+	width:164px;
+	background:	url(http://www.dealsoutlet.net/media/logo/category_tab_m.png) repeat-x;
+}
+
+.rightSectionHead {
+	float:left;
+	height:27px;
+	width:200px;
+}
+
+.rightSectionBodyContainer {
+	border-bottom:1px solid #DCDCDC;
+	border-left:1px solid #DCDCDC;
+	border-right:1px solid #DCDCDC;
+	width:198px;
+	float:left;
+}
+
+.signupboxContainer {
+	width:200px;
+	float:left;
+}
+
+.rightSectionBody {
+	float:left;
+	padding:7px;
+}
+
+.rightSectionBody p {
+	background:transparent url(http://www.dealsoutlet.net/media/logo/dot.gif) no-repeat scroll left center;
+	float:left;
+	font-size:14px;
+	margin:3px 0;
+	padding:0 0 0 8px;
+	width:95%;
+}
+
+#signupboxTop {
+	border-top:4px solid #f0f0f0;
+	padding:15px 0px 0px 0px;
+	width:166px;
+	float:left;
+	font-size:15px;
+	font-weight:bold;
+	color:#0072bc;
+}
+
+#signupboxBottom {
+	height:29px;
+	width:166px;
+	float:left;
+	background:transparent url(http://www.dealsoutlet.net/media/logo/signupbox_bottom_m.png) repeat bottom;
+	font-size:15px;
+	color:#0072bc;
+	text-align:center;
+}
+
+.signupboxHorizontal {
+	float:left;
+	height:29px;
+	width:200px;	
+}
+
+.signupboxTopHorizontal {
+	float:left;
+	height:45px;
+	width:200px;	
+}
+
+#alertKw {
+	width:146px;
+	overflow:hidden;		
+}
+
+.signinInput {
+	width:98%;
+	overflow:hidden;
+	border:1px solid #0072bc;
+	color:#0072bc;
+	background:transparent url(http://www.dealsoutlet.net/media/logo/signup_field_background.png) repeat-x;
+	height:20px;
+}
+
+#signupboxBody {
+	overflow:hidden;
+	border-left:4px solid #f0f0f0;
+	border-right:4px solid #f0f0f0;
+	float:left;
+	padding:0px 20px 0px 20px;
+	font-size:12px;
+	color:#696959;	
+}
+
+#signupboxBody p {
+	width:96%;
+}
+
+.signinText {
+	font-size:12px;
+	color:#707070;
+}
+
+#signinButtons {
+	padding:5px 0px 5px 3px;
+}
+
+#signinButton {
+	font-weight:bold;
+	color:#e9f1f8;
+	font-size:12px;
+	width:66px;
+	height:26px;
+	background:transparent url(http://www.dealsoutlet.net/media/logo/button_blue.png) no-repeat;
+}
+
+#signupButton {
+	font-weight:bold;
+	color:#e9f1f8;
+	font-size:12px;
+	width:66px;
+	height:26px;
+	background:transparent url(http://www.dealsoutlet.net/media/logo/button_olive.png) no-repeat;
+}
+
+#contentLeft a, #contentRight a {
+	text-decoration:none;
+	color:#2f8ebe;
+}
+
+#footer a {
+	color:#2f8ebe;
+}
+
+.dealList a {
+	text-decoration:none;
+	color:#0a87bd;
+	font-weight:bold;
+}
+
+.moreDeals a {
+	font-weight:normal;
+}
+
+body	{
+	margin: 0;
+	padding: 0;	
+	border: 0;
+}
+
+#headerLink {
+	width:1000px;
+	float:left;	
+	text-align:right
+}
+
+#container {
+	background:#FFFFFF none repeat scroll 0 0;
+	border:0 none;
+	margin:0 auto;
+	text-align:left;
+	width:1001px;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+}
+
+#header {
+	float:left;	
+}
+
+#headerCategory {
+	width:1000px;
+	float:left;		
+	text-align:right;
+}
+
+#contentCenter {
+	float:left;	
+	width:562px;	
+}
+
+#content {
+	float:left;	
+	width:1001px;
+}
+
+.dealList {
+	float:left;	
+	width:560px;
+}
+
+#contentCenter #message {
+	float:left;	
+	width:560px;
+}
+
+#dealListTopSubcategory {
+	float:left;	
+	width:560px;
+}					
+
+#contentLeft {
+	float:left;	
+	width:212px;
+	text-align:left;
+	padding:0px;
+	margin:0px;
+}
+
+#contentRight {
+	float:right;	
+	width:202px;
+	text-align:left;
+}
+
+#inputAlert {
+	float:left;	
+}
+
+#plsLogin {
+	float:left;	
+}
+
+#alertList {
+	float:left;	
+	width:115px;
+	overflow:hidden;
+	font-size:12px;
+}
+
+#sitemapLeft {
+	float:left;	
+	width:480px;
+	text-align:left;
+}
+
+#sitemapRight {
+	float:left;	
+	width:480px;
+	text-align:left;
+}
+
+.verticalSpace20 {
+	float:left;	
+	width:12px;
+}
+
+.horizontalSpace5 {
+	float:left;	
+	height:5px;
+	width:95%;
+}
+
+
+#footer {
+	float:left;	
+	width:1000px;
+	text-align:center;
+}
+
+img {
+	float:left;	
+}
+
+.topSpace {
+	clear:both;
+	float:left;
+	height:5px;
+	width:98%;
+}
+
+.space {
+	border-bottom:1px solid #DCDCDC;
+	clear:both;
+	float:left;
+	height:5px;
+	margin-bottom:20px;
+	width:98%;
+}
+
+.hide {
+	display:none;
+}
+
+.centerSectionHead {
+	border-top:4px solid #ececec;
+	float:left;
+	width:560px;
+	overflow:hidden;
+}
+
+.leftSectionBodyContainer {
+	border-bottom:1px solid #DCDCDC;
+	border-left:1px solid #DCDCDC;
+	border-right:1px solid #DCDCDC;
+	float:left;
+	width:208px;
+}
+
+.leftSectionBody {
+	float:left;
+	padding:7px;
+}
+
+.leftSectionBody p {
+	background:transparent url(http://www.dealsoutlet.net/media/logo/dot.gif) no-repeat scroll left center;
+	float:left;
+	font-size:14px;
+	height:18px;
+	margin:3px 0;
+	overflow:hidden;
+	padding:0 0 0 8px;
+	width:96%;
+}
+
+#alertDeleteButton {
+	float:left;			
+}
+
+.productListName {
+	float:left;
+	color:#000000;
+	font-size:16px;
+}
+
+.productListImage {
+	float:left;
+	width:165px;
+	overflow:auto;
+}
+
+.priceLabel {
+	color:#696959;
+	font-size:14px !important;
+	padding-right:3px;
+	text-align:right;
+	vertical-align:top;
+	white-space:nowrap;
+}
+
+.listPrice {
+	text-decoration:line-through;
+	font-size:15px;
+}
+
+.salePrice {
+	color:#990000;
+	font-size:18px;
+	font-weight:normal;
+	letter-spacing:-1px;
+}
+
+.savePrice {
+	color:#333333;
+	font-size:15px;
+	font-weight:normal;
+	letter-spacing:-1px;
+}
+
+.moreDeals {
+	float:right;
+	font-size:12px;
+	margin:10px;
+	padding:0px;
+	text-align: right;
+}
+
+.site {
+	padding:10px;
+}
+
+#copyRight {
+	color:#999999;
+	font-size:11px;
+}
+
+.pagination{
+	text-align: center;
+	font-size: 15px;
+}

@@ -1,0 +1,44 @@
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+
+<div class="signupboxTopHorizontal">
+<div>
+  <img border="0" src="http://www.dealsoutlet.net/media/logo/signupbox_top_l.png">
+</div>
+<div id="signupboxTop">Welcome <%= @user.name %> </div>
+<div>
+
+<img border="0" src="http://www.dealsoutlet.net/media/logo/signupbox_top_r.png">
+</div>
+</div>
+<div class="signupboxContainer">
+  <div id="signupboxBody">
+    <a href="http://www.dealsoutlet.net/member/profile" rel="nofollow">Update Profile</a>
+    <br>
+    <a href="/user/signout" rel="nofollow">Sign out</a>
+    <a href="http://www.dealsoutlet.net/member/register" rel="nofollow">Sign up</a>
+    <br>
+    <br> Setup Deal Alert <br>
+  <input id="alertKw" type="text" onblur="if(this.value=='') { this.value='Enter Keywords';}" onfocus="if(this.value=='Enter Keywords') this.value='';" value="Enter Keywords" name="alertKw" size="11">
+  <input type="button" value="Submit" onclick="addAlert()">
+  <br>
+  <br>
+    <div id="inputAlert">
+      <b>Existing alerts</b>
+      <br>
+      <span id="alertList">computer</span>
+      <span>
+        <input type="button" onclick="deleteAlert(95)" value="delete">
+      </span>
+      <br>
+      <span id="alertList">Enter Keywords</span>
+      <span>
+         <input type="button" onclick="deleteAlert(99)" value="delete">
+      </span>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="verticalSpace20">&nbsp;</div>
+<div id="contentCenter"> 
+				<div class="centerSectionHead">
+				</div> 
+											<div class="dealList"><p class="moreDeals">
+							  <a href="http://www.amazon.com" target="_blank" rel="nofollow"><strong>Shop "Amazon" Now</strong></a></p></div><div class="space"></div>
+
+<% @products.each do |product| %>
+<div class="dealList">
+    <span class="productListImage">
+	<a href=<%= product.detail_page_url %> target="_blank" rel="nofollow">
+	<img border="0" src= <%= product.small_image_url %> />
+        </a>
+    </span>
+<span>
+    <table class="product">
+        <tbody>
+	    <tr>
+		<td colspan=2>
+			<b class="productListName">
+				<a href=<%= product.detail_page_url %>  target="_blank" rel="nofollow"><%= product.title %></a>
+			</b>
+		</td>
+            </tr>
+  	    <tr>
+		<td class="priceLabel">List Price:</td>
+		<td class="listPrice">$<%= product.list_price/100.0 %></td>
+	    </tr>
+	    <tr>
+		<td class="priceLabel">Price:</td>
+		<td><b class="salePrice">$<%= product.price/100.0 %></b></td>
+	    </tr>
+	    <tr>
+		<td class="priceLabel">You Save:</td>
+	   	<td class="savePrice">$<%= (product.list_price - product.price)/100.0 %> (<%= product.percentage_saved %>%)</td>
+	    </tr>
+	</tbody>
+    </table>
+</span>
+<p class="moreDeals">&nbsp;</p>
+</div>
+<% end %>
+</div>
+
+
+<div class="verticalSpace20">&nbsp;</div>
+

@@ -1,0 +1,47 @@
+			<div id="contentLeft">
+							<div class="leftSectionHead">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_l.png"/></div>
+				<div class="leftSectionTitle">
+					<div class="sectionTitleText">Hot Catalog</div>
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_r.png"/></div>
+			</div>
+			<div class="leftSectionBodyContainer">
+			  <div class="leftSectionBody">
+<ul>
+<% @catalogs.each do |catalog| %>
+	<li><a href="/catalogs/<%= catalog.id %>"><%= catalog.name %></li>
+	<li><%= link_to catalog.name, "/catalogs/" + catalog.id.to_s, remote: true %></li>
+<% end %>
+</ul>
+
+
+			<div class="listCatalog"><a href="/catalogs">List Catalogs...</a></div>			  </div>
+			</div>
+			
+			<div class="horizontalSpace20">&nbsp;</div>
+			
+			<div class="leftSectionHead">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_l.png"/></div>
+				<div class="leftSectionTitle">
+					<div class="sectionTitleText">Hot Merchant</div>
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_r.png"/></div>
+			</div>
+			<div class="leftSectionBodyContainer">
+			  <div class="leftSectionBody">
+
+<ul>
+<% @merchants.each do |merchant| %>
+	<li><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></li>
+<% end %>
+</ul>			
+
+
+
+			<div class="listCatalog"><a href="/merchants/">List Merchants...</a></div>			
+			  </div>
+			</div>
+			</div>
+			
+

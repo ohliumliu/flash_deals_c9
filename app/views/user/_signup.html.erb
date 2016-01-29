@@ -1,0 +1,63 @@
+			<div class="verticalSpace20">&nbsp;</div>
+<div id="contentCenter"> 
+			  <div class="centerSectionHead">
+			  </div>
+			  <div class="horizontalSpace5">&nbsp;</div>
+				<div id="message"><font color="red"></font></div>
+			
+
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+	
+      				<div class="login">
+					<form id="registerform" action="/user/signup" method="post">
+					<p>
+						<label>Username:</label><br/>
+						<input type="text" class="input" name="username" value="" size="30" maxlength="30"/>
+					<p/>
+				
+					<p>
+						<label>Password:</label><br/>
+					  	<input type="password" class="input" name="password" value="" size="30" maxlength="50"/>
+					<p/>
+				
+				
+					<p>
+						<label>Confirm:</label><br/>
+					  	<input type="password" class="input" name="passwordRepeat" value="" size="30" maxlength="50"/>
+					<p/>
+				
+					<p>
+						<label>Email:</label><br/>
+					  	<input type="text" class="input" name="email" value="" size="30" maxlength="40"/>
+					<p/>
+				
+										<p>
+					  	<input type="checkbox" name="newsLetter" />
+						<label>I would like to receive daily hot deals list</label><br/>
+					<p/>
+				
+					<p>
+						<img src="http://www.dealsout.net/verificaftion/image/key/registration_verification/len/4">
+						<br/><br/><br/>
+						<label>Enter Verification Code Above:</label>
+						<br/>
+					  	<input type="text" class="input" name="verificationCode" value="" size="30" maxlength="40"/>
+					<p/>
+				
+					<p class="submit">
+					    <input type="hidden" name="key" value="registration_verification/">
+					    <input type="hidden" name="affiliate" value="0">
+					    <input type="hidden" name="save" value="1">
+					    <input type="hidden" name="next" value="/">
+					    <input type="submit" name="register" value="Register"/>
+					</p>
+					</form>
+					
+										
+				</div>
+			</div>
+			
+			<div class="verticalSpace20">&nbsp;</div>
