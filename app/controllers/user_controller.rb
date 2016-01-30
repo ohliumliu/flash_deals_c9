@@ -1,20 +1,26 @@
 class UserController < ApplicationController
   def signup
+    if @user.nil? 
+      @user = User.new
+    end
   end
 
   def create
-    user = User.new
+    @user = User.new
     if params[:password] == params[:passwordRepeat]
-      user[:name] = params[:username]
-      user[:password] = Digest::SHA1.hexdigest params[:password]
-      user[:email] = params[:email]
-      user.save
-      flash[:success] = "Thank you for registration"
-      UserMailer.welcome_email(user).deliver
+      @user[:name] = params[:username]
+      @user[:password] = Digest::SHA1.hexdigest params[:password]
+      #@user[:password_confirmation] = Digest::SHA1.hexdigest params[:passwordRepeat]
+      @user[:email] = params[:email]
+      if @user.save 
+        flash[:success] = "Thank you for registration"
+        UserMailer.welcome_email(@user).deliver
+      end
     else
-      #flash[:error] = "Password should match"
-      redirect_to "/user/signup", :flash => {:error => "Password should match"}
+      @user.errors.add(:password, "not the same")  
+      #flash[:error] = "password not the same"
     end
+    render "/user/signup" # redirect_to doesn't work!! how to use session to transfer variables
   end
 
   def signin
@@ -35,7 +41,6 @@ class UserController < ApplicationController
       end
       #redirect_to action: "signup", :flash => {:error => "I don't know you"} 
     end
-
        
   end
 

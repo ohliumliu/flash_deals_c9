@@ -3,12 +3,23 @@
 			  <div class="centerSectionHead">
 			  </div>
 			  <div class="horizontalSpace5">&nbsp;</div>
-				<div id="message"><font color="red"></font></div>
-			
+				<div id="message"><font color="red"></font>
 
 <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
+      </div>
+
+<% if @user.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@user.errors.count, "error") %> detected</h2>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+				<li> <%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
 
 	
       				<div class="login">
