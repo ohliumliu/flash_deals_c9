@@ -1,4 +1,8 @@
 class UserController < ApplicationController
+  before_action do |controller|
+    @user_id = session[:user_id]
+  end
+  
   def signup
     if @user.nil? 
       @user = User.new
@@ -47,6 +51,7 @@ class UserController < ApplicationController
   def signout
     if session[:user_id]
       session[:user_id] = nil
+      @user_id = nil
     end
     redirect_to root_path
   end

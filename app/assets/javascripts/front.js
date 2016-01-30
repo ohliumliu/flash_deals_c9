@@ -123,7 +123,7 @@
 			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
 			 url: "/user/signin.json",
 			 data: {
-				"username": $("#signupboxBody > form:nth-child(1) > div:nth-child(2) > input:nth-child(1)").val(),
+				"username": $("#signinname").val(),
 				"password": $("#signinpassword").val(),
 				//"password": "test",
 				//"password": $("div.signinText:nth-child(3)").val(),
@@ -135,8 +135,8 @@
 			// data is already a JS object. No need to parse
 			if (data.status === "signin") {
 				$("#signupboxTop").html("Welcome " + data.user.name);
-			        $("#signupboxBody").hide();
-			        $("#profileBody").show();
+			    $("#signupboxBody").hide();
+			    $("#profileBody").show();
 				showAllAlerts(data.alerts);
 			}else if (data.status === "fail")
 			$("#signupboxTop").html("Wrong Password/Username");

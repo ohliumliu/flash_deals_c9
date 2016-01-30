@@ -1,15 +1,20 @@
-       			<div id="contentRight">
-									<div class="signupboxTopHorizontal">
+       		<div id="contentRight">
+				<div class="signupboxTopHorizontal">
 				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_top_l.png"/></div>
-				<div id="signupboxTop">Setup Deals Alerts
-				</div>
+				<% if @user_id.nil? %>
+					<div id="signupboxTop">Setup Deals Alerts </div>
+				<% else %>
+					<div id="signupboxTop">Welcome <%= @user_name %> </div>
+				<% end %>
+				
 				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_top_r.png"/></div>
-			</div>
+				</div>
 			<div class="signupboxContainer">
+   		<% if @user_id.nil? %>
 			  <div id="signupboxBody">
 			    <form id="signinform" action="/user/signin" onsubmit="return signin()">
 			  	<div class="signinText">Username:</div>
-			  	<div><input class="signinInput" name="username" type="text"/></div>
+			  	<div><input id="signinname" class="signinInput" name="username" type="text"/></div>
 			  	<div class="signinText">Password:</div>
 			  	<div><input id="signinpassword" class="signinInput" name="password" type="password"/></div>
 			  	<div id="signinButtons">
@@ -18,9 +23,9 @@
 				<input type="hidden" name="check" value="1"/>
 			  	</div>
 			   </form>
-
 			  </div>
-			<div id="profileBody" style="display:none">
+		<% else %>
+			<div id="profileBody" >
     				<a href="http://www.dealsoutlet.net/member/profile" rel="nofollow">Update Profile</a>
     				<br>
     				<a href="/user/signout" rel="nofollow">Sign out</a>
@@ -40,8 +45,9 @@
       				</span>
 			        </div>
   			</div>
+  		<% end %>
+  			</div>
 
-			</div>
 			
 			<div class="signupboxHorizontal">
 				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_bottom_l.png"/></div>
