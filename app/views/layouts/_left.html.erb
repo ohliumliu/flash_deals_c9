@@ -33,7 +33,12 @@
 
 <ul>
 <% @merchants.each do |merchant| %>
+	<!--
 	<li><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></li>
+	<li><a href="#!" onclick="return list_merchant_products(<%= merchant.id %>)"><%= merchant.name %></a></li>
+	<li><a href="javascript;" onclick="return list_merchant_products(<%= merchant.id %>)"><%= merchant.name %></a></li>
+	-->
+	<li><a href="javascript;" onclick="return list_merchant_products(<%= merchant.id %>);"><%= merchant.name %></a></li>
 <% end %>
 </ul>			
 

@@ -82,6 +82,23 @@
 		}); 		
 		return false;
 	}
+	
+	
+	function list_merchant_products(id){
+		$.ajax({
+			type: "GET",
+			beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			url: "/merchants/" + id +".html", 
+			//url: "/merchants.html",
+			//data: "merchant_id=2", 
+			//data: "",
+			dataType: "html",
+			success: function(data){	
+				$("#contentCenter").html(data);
+			}	
+		});
+		return false;
+	}
 
 
 	function trim(str, chars) {

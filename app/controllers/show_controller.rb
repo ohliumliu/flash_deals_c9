@@ -7,6 +7,9 @@ class ShowController < ApplicationController
       end
     elsif params[:merchant_id]
       @products = Product.where(merchant_id: params[:merchant_id]).order('percentage_saved DESC')
+      respond_to do |format|
+        format.html {render :partial => "show" }
+      end
     elsif params[:search]
       @products = Product.where('title LIKE ?', "%#{params[:search]}%")
       respond_to do |format|

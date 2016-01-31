@@ -10,8 +10,11 @@
 				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_top_r.png"/></div>
 				</div>
 			<div class="signupboxContainer">
-   		<% if @user_id.nil? %>
-			  <div id="signupboxBody">
+			<% if @user_id.nil? %>	
+			  <div id="signupboxBody" style="display:block">
+			<% else %>
+			  <div id="signupboxBody" style="display:none">
+			<% end %>
 			    <form id="signinform" action="/user/signin" onsubmit="return signin()">
 			  	<div class="signinText">Username:</div>
 			  	<div><input id="signinname" class="signinInput" name="username" type="text"/></div>
@@ -24,8 +27,11 @@
 			  	</div>
 			   </form>
 			  </div>
-		<% else %>
-			<div id="profileBody" >
+			<% if @user_id.nil? %>
+				<div id="profileBody" style="display:none" >
+			<% else %>
+				<div id="profileBody" style="display:block" >
+			<% end %>
     				<a href="http://www.dealsoutlet.net/member/profile" rel="nofollow">Update Profile</a>
     				<br>
     				<a href="/user/signout" rel="nofollow">Sign out</a>
@@ -45,7 +51,6 @@
       				</span>
 			        </div>
   			</div>
-  		<% end %>
   			</div>
 
 			
