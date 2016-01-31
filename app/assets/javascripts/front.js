@@ -12,6 +12,10 @@
 //	  }
 	}
 	
+	function jsTest(obj){
+		alert(obj);
+	}
+	
 	function addAlert() {
 		if (trim($("#alertKw").val())=="") {
 			alert("Please enter a valid keyword");

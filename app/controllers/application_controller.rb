@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     @travel_sites = TravelSite.all
     if @user_id = session[:user_id]
       @user_name = User.find(@user_id).name
+      @user_alerts = Alert.where(:user_id => @user_id).all
     end
   end
 

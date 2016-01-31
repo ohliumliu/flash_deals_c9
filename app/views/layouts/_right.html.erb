@@ -43,6 +43,11 @@
       				</span>
 			        </div>
   			</div>
+  				<% if !@user_id.nil? %>
+  				<script>
+  					showAllAlerts(<%= @user_alerts.to_json.to_s.html_safe %>);
+  				</script>
+  				<% end %>
   			</div>
 
 			
