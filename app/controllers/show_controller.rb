@@ -18,7 +18,6 @@ class ShowController < ApplicationController
         #format.html {render partial: "show", locals: {products: @products}}# index.html.erb
         #format.html {render partial: "show", object: @products}# index.html.erb
       end
-
     else
       @products = Product.order('percentage_saved DESC').page params[:page]
     end
