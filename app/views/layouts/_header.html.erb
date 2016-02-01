@@ -23,6 +23,9 @@
 			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/998/name/Travelocity">Travelocity</a></div>
 			<div><img border="0" src="http://dealsoutlet.net/media/logo/top_menu_r24.png"/></div>
 		</div>
+		<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
 	</div>	<!-- end #header -->
 	
   

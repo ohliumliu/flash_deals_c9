@@ -10,6 +10,10 @@ module Admin
 
     def authenticate_admin
       # TODO Add authentication logic here.
+      if session[:user_id].nil?
+        flash[:error] = "please login first"
+        redirect_to root_path
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
