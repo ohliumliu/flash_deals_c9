@@ -2,17 +2,17 @@
 <div id="contentCenter"> 
 				<div class="centerSectionHead">
 				</div> 
-											<div class="dealList"><p class="moreDeals">
-							  <a href="http://www.amazon.com" target="_blank" rel="nofollow"><strong>Shop "Amazon" Now</strong></a></p></div><div class="space"></div>
+<div class="dealList"><p class="moreDeals">
+<a href="http://www.amazon.com" target="_blank" rel="nofollow"><strong>Shop "Amazon" Now</strong></a></p></div><div class="space"></div>
 
-<% @products.each do |product| %>
 <div class="dealList">
+<% @products.each do |product| %>
     <span class="productListImage">
 	<a href=<%= product.detail_page_url %> target="_blank" rel="nofollow">
 	<img border="0" src= <%= product.small_image_url %> />
         </a>
     </span>
-<span>
+	<span>
     <table class="product">
         <tbody>
 	    <tr>
@@ -37,9 +37,9 @@
 	</tbody>
     </table>
 </span>
-<p class="moreDeals">&nbsp;</p>
-</div>
 <% end %>
+<%= paginate @products %>
+</div>
 </div>
 
 
