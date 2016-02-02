@@ -67,46 +67,37 @@
 		}); 		
 	}
 
-	function searchDeals() {
+	function searchDeals(url="") {
 		if (trim($("#search").val())=="") {
 			alert("Please enter something to search for");
 			return 0;
 		}
+		if (url==""){
+			url = "/show/search.html?search=" + $("#search").val();
+		}
+		
 		 $.ajax({
 			 type: "GET",
 			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			 url: "/show/search.html",
-			 data: "search=" + $("#search").val(),
+			 url: url,
+			 //data: "search=" + $("#search").val(),//data can be lumped into url
 			 //dataType: "text",
 			 success: function(data){
-//			 	$("#inputAlert").html("");
+				//alert("searching");
 				$("#contentCenter").html(data);
-				/*
-				$("span.page:nth-child(2) > a:nth-child(1)").click(function(){
-					$(this).slideUp();
-				})
-				*/
+				
 				//this ajax call works, but need to loop all elements of the pagination nav the url dynamically
-				//$("span.page:nth-child(2) > a:nth-child(1)").click(function(){
 				// the following blocks can update all the <a>, but it only work for one click
 				$(".pagination").find("a").each(function(){
 					$(this).click(function(){
-						alert("new call");
-						$.ajax({
-						type: "GET",
-						beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-						url: $(this).attr("href"),
-						success: function(data){
-							$("#contentCenter").html(data);
-						}
+						searchDeals($(this).attr("href"));
 					});
-					});
-	
 				});
-				// this line works
-				//$("span.page:nth-child(2) > a:nth-child(1)").attr("data-remote", "false");
-			 }
-		}); 		
+	
+				}
+			});
+			// this line works
+			//$("span.page:nth-child(2) > a:nth-child(1)").attr("data-remote", "false");
 		return false;
 	}
 	/* this block works, but the url is not what we need. missing search params */	
