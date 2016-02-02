@@ -80,14 +80,49 @@
 			 //dataType: "text",
 			 success: function(data){
 //			 	$("#inputAlert").html("");
-			 	alert("searching");
 				$("#contentCenter").html(data);
+				/*
+				$("span.page:nth-child(2) > a:nth-child(1)").click(function(){
+					$(this).slideUp();
+				})
+				*/
+				//this ajax call works, but need to loop all elements of the pagination nav the url dynamically
+				$("span.page:nth-child(2) > a:nth-child(1)").click(function(){
+					//$(this).hide();
+					alert("new call");
+					$.ajax({
+						type: "GET",
+						beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+						//url: "/show/search.html?page=1&search=bluetooth",
+						url: $(this).attr("href"),
+						success: function(data){
+							$("#contentCenter").html(data);
+						}
+					});
+					//updatePageLink($(this).attr("href"));
+	
+				});
+				// this line works
+				//$("span.page:nth-child(2) > a:nth-child(1)").attr("data-remote", "false");
 			 }
 		}); 		
 		return false;
 	}
-	
-	
+	/* this block works, but the url is not what we need. missing search params */	
+	/* this function is probably redundant */
+	function updatePageLink(url){
+				return function(){
+					alert("new call");
+					$.ajax({
+						type: "GET",
+						beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+						url: "/show/search.html?page=1&search=bluetooth",
+						success: function(data){
+							$("#contentCenter").html(data);
+						}
+					});
+				};	
+	}	
 	function list_merchant_products(id){
 		$.ajax({
 			type: "GET",

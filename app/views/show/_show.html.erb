@@ -38,7 +38,14 @@
     </table>
 </span>
 <% end %>
-<%= paginate @products %>
+<!--
+The following line generates the pages link. 
+For remote:true, each link leads to a .js call and .js.erb will be called. This works for catalog list links.
+For remote:false, each link leads to a html call, but it doesn't return the html back to the calling javascript. So it doesn't work for search calls.
+This line of ruby code generates html tags for the pages.
+-->
+<%= paginate @products, remote: true%>
+
 </div>
 </div>
 
