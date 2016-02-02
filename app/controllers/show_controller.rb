@@ -1,26 +1,26 @@
 class ShowController < ApplicationController
   def show
     if params[:catalog_id]
-      @products = Product.where(catalog_id: params[:catalog_id]).order('percentage_saved DESC')
+      @products = Product.where(catalog_id: params[:catalog_id]).order('percentage_saved DESC').page params[:page]
+      # this last command gets the products from :page
       respond_to do |format|
         format.js
       end
     elsif params[:merchant_id]
-      @products = Product.where(merchant_id: params[:merchant_id]).order('percentage_saved DESC')
+      @products = Product.where(merchant_id: params[:merchant_id]).order('percentage_saved DESC').page params[:page]
       respond_to do |format|
         format.html {render :partial => "show" }
       end
     elsif params[:search]
-      @products = Product.where('title LIKE ?', "%#{params[:search]}%")
+      @products = Product.where('title LIKE ?', "%#{params[:search]}%").page params[:page]
       respond_to do |format|
-        format.html {render :partial => "show"} # index.html.erb
+        format.html {render partial: "show"} # index.html.erb
         #format.html {render :partial => "show", :locals => {:products => @products}} # index.html.erb
         #format.html {render partial: "show", locals: {products: @products}}# index.html.erb
         #format.html {render partial: "show", object: @products}# index.html.erb
       end
-
     else
-      @products = Product.order('percentage_saved DESC')
+      @products = Product.order('percentage_saved DESC').page params[:page]
     end
   end
 

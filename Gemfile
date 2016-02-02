@@ -10,6 +10,9 @@ gem 'mysql2', '~>0.3.18'
 # use "attr_accessible"
 gem 'protected_attributes'
 
+# pagination
+gem 'kaminari'
+
 # admin interface
 gem "administrate", github: "thoughtbot/administrate"
 
