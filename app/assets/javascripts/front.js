@@ -70,7 +70,7 @@
 	function searchDeals(url="") {
 		if (trim($("#search").val())=="") {
 			alert("Please enter something to search for");
-			return 0;
+			return false;
 		}
 		if (url==""){
 			url = "/show/search.html?search=" + $("#search").val();
