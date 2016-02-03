@@ -19,6 +19,26 @@ class UserController < ApplicationController
       end
           
     end
+    
+   
+  end
+  
+  def update
+      @user = User.find(session[:user_id])
+     if params[:user][:password] == params[:user][:passwordRepeat]
+      @user[:password] = Digest::SHA1.hexdigest params[:user][:password]
+      #@user[:password_confirmation] = Digest::SHA1.hexdigest params[:passwordRepeat]
+      @user[:email] = params[:user][:email]
+      if @user.save 
+        flash[:success] = "Thank you for updating"
+      end
+    else
+      @user.errors.add(:password, "not the same")  
+      #flash[:error] = "password not the same"
+    end
+      render "/user/_edit"
+
+    
   end
   
   
