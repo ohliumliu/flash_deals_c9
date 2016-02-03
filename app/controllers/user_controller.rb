@@ -6,6 +6,23 @@ class UserController < ApplicationController
     end
   end
 
+
+  def edit
+    if session[:user_id].nil?
+      flash[:error] = "please log in first"
+      redirect_to root_path
+    else
+      @user = User.find(session[:user_id])
+      @user_id = session[:user_id]
+      respond_to do |format|
+        format.html {render "_edit"}
+      end
+          
+    end
+  end
+  
+  
+  
   def create
     @user = User.new
     if params[:password] == params[:passwordRepeat]
