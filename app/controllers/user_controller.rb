@@ -17,10 +17,7 @@ class UserController < ApplicationController
       respond_to do |format|
         format.html {render "_edit"}
       end
-          
     end
-    
-   
   end
   
   def update
