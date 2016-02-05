@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   		     # post 'users/signup' => 'User#signup'
   get "/user/signin"
   get "user/signout" 
+  
+  post "/products/import"
 
   #resources :merchants
 

@@ -80,4 +80,10 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # import products from amazon
+  def import
+    ProductImportController.new.import_amazon 
+    redirect_to "/admin/products" 
+  end
 end
