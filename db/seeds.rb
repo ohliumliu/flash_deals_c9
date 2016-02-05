@@ -23,3 +23,8 @@ TravelSite.destroy_all
 TravelSite.create({name: 'Priceline', url: 'http://www.priceline.com'})
 
 Product.destroy_all
+
+# admin user
+admin_user = User.new({name: 'admin', email: 'yul.liuyu@gmail.com', password:  Digest::SHA1.hexdigest('admin')})
+admin_user.isadmin = true
+admin_user.save

@@ -88,7 +88,7 @@
 				
 				//this ajax call works, but need to loop all elements of the pagination nav the url dynamically
 				//pagainate also supports extra parameters to include custom html tages, but it needs to be done in view and applies to all the request.
-				//So it is not suitable here.
+				//So it is not suitable here. Unless there is a pagination options defined as instance variable by controller.
 				$(".pagination").find("a").each(function(){
 					$(this).click(function(){
 						searchDeals($(this).attr("href"));

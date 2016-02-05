@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130051242) do
+ActiveRecord::Schema.define(version: 20160205221428) do
 
   create_table "alerts", force: :cascade do |t|
     t.string   "content",    limit: 255
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160130051242) do
     t.datetime "updated_at"
     t.string   "password",              limit: 255
     t.string   "password_confirmation", limit: 255
+    t.boolean  "isadmin",                           default: false
   end
 
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree

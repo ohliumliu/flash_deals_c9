@@ -13,6 +13,12 @@ module Admin
       if session[:user_id].nil?
         flash[:error] = "please login first"
         redirect_to root_path
+      elsif 
+        @user = User.find(session[:user_id])
+        if !@user.isadmin
+          flash[:error] = "you are not admin"
+          redirect_to root_path
+        end
       end
     end
 
