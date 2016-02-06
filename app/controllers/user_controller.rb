@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  
+  require 'sendMailgun'
   def signup
     if @user.nil? 
       @user = User.new
@@ -49,7 +49,8 @@ class UserController < ApplicationController
       @user[:email] = params[:email]
       if @user.save 
         flash[:success] = "Thank you for registration"
-        UserMailer.welcome_email(@user).deliver
+        SendMailgun.new.send_simple_message
+        UserMailer.welcome_email(@user).deliver_late
       end
     else
       @user.errors.add(:password, "not the same")  

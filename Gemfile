@@ -16,6 +16,10 @@ gem 'kaminari'
 # admin interface
 gem "administrate", github: "thoughtbot/administrate"
 
+# for using mailgun
+gem 'rest-client'
+gem 'mailgun-ruby'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
