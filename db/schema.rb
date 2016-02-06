@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205221428) do
+ActiveRecord::Schema.define(version: 20160205232958) do
 
   create_table "alerts", force: :cascade do |t|
     t.string   "content",    limit: 255
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160205221428) do
     t.integer  "catalog_id",             limit: 4
   end
 
+  add_index "products", ["ASIN"], name: "index_products_on_ASIN", unique: true, using: :btree
   add_index "products", ["catalog_id"], name: "index_products_on_catalog_id", using: :btree
   add_index "products", ["merchant_id"], name: "index_products_on_merchant_id", using: :btree
 

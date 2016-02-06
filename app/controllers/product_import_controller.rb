@@ -11,8 +11,10 @@ class ProductImportController
       product_hash = amazon_api.call_item_lookup_api(item.content)
         if (product_hash.class == Hash)
           product_hash[:catalog_id] = catalog.id
-          Product.create(product_hash)
-          puts "one product added to database"
+          new_product = Product.new(product_hash)
+          if new_product.save
+            puts "one product added to database"
+          end
         end
       end
       
