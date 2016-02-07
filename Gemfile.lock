@@ -101,6 +101,10 @@ GEM
     mailgun-ruby (1.0.3)
       json (~> 1.8)
       rest-client (~> 1.6)
+    mailgun_rails (0.8.0)
+      actionmailer (>= 3.2.13)
+      json (>= 1.7.7)
+      rest-client (>= 1.6.7)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
@@ -199,6 +203,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mailgun-ruby
+  mailgun_rails
   mysql2 (~> 0.3.18)
   protected_attributes
   rails (= 4.2.5)

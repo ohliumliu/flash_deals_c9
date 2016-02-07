@@ -19,6 +19,7 @@ gem "administrate", github: "thoughtbot/administrate"
 # for using mailgun
 gem 'rest-client'
 gem 'mailgun-ruby'
+gem 'mailgun_rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
