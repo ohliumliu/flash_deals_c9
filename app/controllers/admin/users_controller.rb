@@ -1,5 +1,6 @@
 module Admin
   class UsersController < Admin::ApplicationController
+  require 'sendMailgun'
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
@@ -7,6 +8,12 @@ module Admin
     #   super
     #   @resources = User.all.paginate(10, params[:page])
     # end
+    
+    def create
+      super
+      SendMailgun.new.send_simple_message
+
+    end 
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)

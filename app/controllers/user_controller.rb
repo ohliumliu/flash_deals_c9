@@ -50,7 +50,7 @@ class UserController < ApplicationController
       if @user.save 
         flash[:success] = "Thank you for registration"
         SendMailgun.new.send_simple_message
-        UserMailer.welcome_email(@user).deliver_late
+        UserMailer.welcome_email(@user).deliver_later
       end
     else
       @user.errors.add(:password, "not the same")  
