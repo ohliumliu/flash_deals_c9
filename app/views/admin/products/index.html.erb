@@ -56,7 +56,8 @@ It renders the `_table` partial to display details about the resources.
   <div class="header__actions">
     <%= link_to(
       "#{page.resource_name.titleize.downcase} Import from Amazon",
-      "/products/import",
+      #"/products/import",
+      "/admin/products/import",
       class: "button",
       method: "post",
     ) %>

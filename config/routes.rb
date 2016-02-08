@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "user/signout" 
   
   post "/products/import"
+  post "/admin/products/import"
 
   #resources :merchants
 
