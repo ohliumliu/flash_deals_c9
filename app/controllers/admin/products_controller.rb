@@ -14,9 +14,13 @@ module Admin
     # end
       # import products from amazon
     def import
-      ProductImportController.new.import_amazon 
-      Admin::ProductsMailer.import_done_email(@user).deliver_now
-      redirect_to "/admin/products" 
+      if ProductImportController.new.import_amazon 
+        Admin::ProductsMailer.import_done_email(@user).deliver_now
+        flash[:success] = "done. check your email."
+      else
+        flash[:error] = "something is wrong during import."
+      end
+      redirect_to "/admin/products"  
     end 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
