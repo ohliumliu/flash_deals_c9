@@ -14,7 +14,7 @@ module Admin
     # end
       # import products from amazon
     def import
-      #ProductImportController.new.import_amazon 
+      ProductImportController.new.import_amazon 
       Admin::ProductsMailer.import_done_email(@user).deliver_now
       redirect_to "/admin/products" 
     end 
