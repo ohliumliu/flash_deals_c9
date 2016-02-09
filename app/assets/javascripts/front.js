@@ -67,7 +67,9 @@
 		}); 		
 	}
 
-	function searchDeals(url="") {
+	function searchDeals(url) {
+		//the following line sets the default value of url. See http://stackoverflow.com/questions/6486307/default-argument-values-in-javascript-functions
+		url = typeof url === 'undefined' ? "":url;
 		if (trim($("#search").val())=="") {
 			alert("Please enter something to search for");
 			return false;
