@@ -14,7 +14,11 @@ module Admin
     # end
       # import products from amazon
     def import
-      if ProductImportController.new.import_amazon 
+      
+      @job = Delayed::Job.enqueue ImportAmazonJob.new
+      #ProductImportController.new.delay.perform
+      
+      if false
         Admin::ProductsMailer.import_done_email(@user).deliver_now
         flash[:success] = "done. check your email."
       else

@@ -1,5 +1,12 @@
 class ProductImportController 
   require 'flashDeals'
+  
+  #required action by delayed_jobs??
+  def perform
+    puts "delayed_job " + @job.id
+    import_amazon
+  end
+  
   def import_amazon
     Product.destroy_all
     Merchant.destroy_all

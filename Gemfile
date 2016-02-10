@@ -21,6 +21,10 @@ gem 'rest-client'
 gem 'mailgun-ruby'
 gem 'mailgun_rails'
 
+# delayed job
+gem 'delayed_job_active_record'
+# progress bar
+gem 'progress_job'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
