@@ -83,7 +83,7 @@ class ProductsController < ApplicationController
   
   def count
     respond_to do |format|
-      format.json {render json: {count: Product.all.count, status: @import_amazon_ongoing}}
+      format.json {render json: {count: Product.all.count}}
     end
   end
   

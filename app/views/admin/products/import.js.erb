@@ -3,19 +3,19 @@ $(".counter").show();
 var interval = setInterval(
     function(){
     //$(".counter").html("<%= escape_javascript(Product.all.count.to_s) %>" + " products imported so far");
-    updateCounter();
+    updateCounter("<%= escape_javascript(@job.id.to_s) %>");
     }, 5000);
     
-function updateCounter(){
+function updateCounter(id){
     $.ajax({
 			 type: "GET",
 			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			 url: "/products/count.json",
+			 //url: "/products/count.json",
+			 url: "/progress-job/" + id,
 			 //data: "search=" + $("#search").val(),//data can be lumped into url
-			 dataType: "json",
-			 success: function(data){
-			    if (data.status == "true")
-                    $(".counter").html(data.count + " products imported so far");
+			 //dataType: "json",
+			 success: function(job){
+                    $(".counter").html(job.progress_current + " products imported so far");
 				}
 			}); 
 }

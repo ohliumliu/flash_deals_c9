@@ -15,8 +15,8 @@ module Admin
       # import products from amazon
     def import
       
-      #@job = Delayed::Job.enqueue ImportAmazonJob.new
-      ProductImportController.new.delay.perform
+      @job = Delayed::Job.enqueue ImportAmazonJob.new
+      #ProductImportController.new.delay.perform
       
       if false
         Admin::ProductsMailer.import_done_email(@user).deliver_now

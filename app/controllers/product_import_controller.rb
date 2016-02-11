@@ -1,4 +1,4 @@
-class ProductImportController 
+class ProductImportController < ProgressJob::Base
   require 'flashDeals'
   
   #required action by delayed_jobs??
@@ -22,6 +22,7 @@ class ProductImportController
           if new_product.save
             puts "one product added to database"
             puts Product.all.count
+            update_progress(step: 1)
           end
         end
       end
