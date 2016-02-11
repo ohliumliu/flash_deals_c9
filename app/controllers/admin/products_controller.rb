@@ -15,8 +15,8 @@ module Admin
       # import products from amazon
     def import
       
-      @job = Delayed::Job.enqueue ImportAmazonJob.new
-      #ProductImportController.new.delay.perform
+      #@job = Delayed::Job.enqueue ImportAmazonJob.new
+      ProductImportController.new.delay.perform
       
       if false
         Admin::ProductsMailer.import_done_email(@user).deliver_now
@@ -24,7 +24,7 @@ module Admin
       else
         flash[:error] = "something is wrong during import."
       end
-      redirect_to "/admin/products"  
+      #redirect_to "/admin/products"  
     end 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information

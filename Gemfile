@@ -23,6 +23,7 @@ gem 'mailgun_rails'
 
 # delayed job
 gem 'delayed_job_active_record'
+gem 'daemons'
 # progress bar
 gem 'progress_job'
 # Use SCSS for stylesheets

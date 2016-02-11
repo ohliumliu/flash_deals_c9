@@ -3,7 +3,8 @@ class ImportAmazonJob < ProgressJob::Base
   end
 
   def perform
-      user = User.all
-      puts "progress job"
+    puts "progress job"
+    update_stage('Importing Amazon') 
+    ProductImportController.new.import_amazon
   end
 end

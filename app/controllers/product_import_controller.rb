@@ -3,11 +3,11 @@ class ProductImportController
   
   #required action by delayed_jobs??
   def perform
-    puts "delayed_job " + @job.id
     import_amazon
   end
   
   def import_amazon
+    @import_amazon_ongoing = true
     Product.destroy_all
     Merchant.destroy_all
     http_client = OpenUriClient.new
@@ -21,11 +21,12 @@ class ProductImportController
           new_product = Product.new(product_hash)
           if new_product.save
             puts "one product added to database"
+            puts Product.all.count
           end
         end
       end
-      
     end
+    @import_amazon_ongoing = false
   end
 
 end

@@ -1,0 +1,21 @@
+//alert("import.js.erb");
+$(".counter").show();
+var interval = setInterval(
+    function(){
+    //$(".counter").html("<%= escape_javascript(Product.all.count.to_s) %>" + " products imported so far");
+    updateCounter();
+    }, 5000);
+    
+function updateCounter(){
+    $.ajax({
+			 type: "GET",
+			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			 url: "/products/count.json",
+			 //data: "search=" + $("#search").val(),//data can be lumped into url
+			 dataType: "json",
+			 success: function(data){
+			    if (data.status == "true")
+                    $(".counter").html(data.count + " products imported so far");
+				}
+			}); 
+}

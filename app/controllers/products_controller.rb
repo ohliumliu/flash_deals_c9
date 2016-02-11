@@ -81,6 +81,12 @@ class ProductsController < ApplicationController
     end
   end
   
+  def count
+    respond_to do |format|
+      format.json {render json: {count: Product.all.count, status: @import_amazon_ongoing}}
+    end
+  end
+  
   # import products from amazon
   def import
     ProductImportController.new.import_amazon 
