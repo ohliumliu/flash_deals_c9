@@ -1,5 +1,8 @@
 //alert("import.js.erb");
+$(".status").show();
 $(".counter").show();
+$(".counter").html("0 products imported so far");
+$(".status").html("importing");
 var interval = setInterval(
     function(){
     //$(".counter").html("<%= escape_javascript(Product.all.count.to_s) %>" + " products imported so far");
@@ -16,6 +19,17 @@ function updateCounter(id){
 			 //dataType: "json",
 			 success: function(job){
                     $(".counter").html(job.progress_current + " products imported so far");
-				}
+                    
+                    if (job.last_error != null) {
+                    	$(".status").html("something was wrong during import.")
+          				clearInterval(interval);
+        			}
+        
+				},
+			 error: function(){
+        		// Job is no loger in database which means it finished successfuly
+        		clearInterval(interval);
+        		$(".status").html("done, check your email");
+      			}
 			}); 
 }
