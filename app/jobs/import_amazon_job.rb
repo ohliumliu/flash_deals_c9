@@ -1,19 +1,21 @@
 class ImportAmazonJob < ProgressJob::Base
   require 'flashDeals'
+  attr_accessor :user
   def initialize(user_id, progress_max=100)
     super progress_max: progress_max
-    @user = User.find(user_id);
+    @user_id = user_id;
   end
 
   def perform
     puts "progress job"
     update_stage('Importing Amazon') 
     #ProductImportController.new.import_amazon
+    user = User.find(@user_id)
     begin
       import_amazon
-      Admin::ProductsMailer.import_done_email(@user).deliver_now
+      Admin::ProductsMailer.import_done_email(user).deliver_now
     rescue Exception => e
-      Admin::ProductsMailer.import_error_email(@user, e).deliver_now
+      Admin::ProductsMailer.import_error_email(user, e).deliver_now
     end
   end
   
