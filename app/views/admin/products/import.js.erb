@@ -18,7 +18,7 @@ function updateCounter(id){
 			 //data: "search=" + $("#search").val(),//data can be lumped into url
 			 //dataType: "json",
 			 success: function(job){
-                    $(".counter").html(job.progress_current + " products imported so far");
+                    $(".counter").html(job.progress_current + " products updated so far");
                     
                     if (job.last_error != null) {
                     	$(".status").html("something was wrong during import.")

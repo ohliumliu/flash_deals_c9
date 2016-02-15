@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>here is your alerts, <%= @user.name %></h1>
+    <p>
+      Here is your alerts for today
+    </p>
+    <% @user.alert.each do |alert| %>
+      <% products = Product.where('title LIKE ?', "%#{alert.content}%") %>
+      <p> <%= alert.content %>:</p>
+        <div style="display:<%= (products.nil?)?%{block}:%{none} %>"> none </div>
+        <ul>
+          <% products.each do |product| %>
+          <li> <a href=<%= product.detail_page_url %> target="_blank" rel="nofollow"> <%= product.title %></a></li>
+          <% end %>
+        </ul>
+        
+    <% end %>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+

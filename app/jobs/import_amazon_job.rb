@@ -20,8 +20,8 @@ class ImportAmazonJob < ProgressJob::Base
   end
   
   def import_amazon
-    Product.destroy_all
-    Merchant.destroy_all
+    #Product.destroy_all
+    #Merchant.destroy_all
     http_client = OpenUriClient.new
     xml_parser = NokogiriParser.new
     amazon_api = AmazonApi.new(http_client, xml_parser)
@@ -30,11 +30,16 @@ class ImportAmazonJob < ProgressJob::Base
       product_hash = amazon_api.call_item_lookup_api(item.content)
         if (product_hash.kind_of?(Hash))
           product_hash[:catalog_id] = catalog.id
-          new_product = Product.new(product_hash)
-          if new_product.save
-            puts "one product added to database"
-            puts Product.all.count
-            update_progress(step: 1)
+          existing_product = Product.where(:ASIN => product_hash[:ASIN]).first
+          if existing_product.nil?
+            new_product = Product.new(product_hash)
+            if new_product.save
+              puts "one product added to database"
+              puts Product.all.count
+              update_progress(step: 1)
+            end
+          else
+            existing_product.touch
           end
         end
       end

@@ -90,7 +90,7 @@
         product[:small_image_url]=item_response.css("//SmallImage//URL").first.content
         product[:medium_image_url]=item_response.css("//MediumImage//URL").first.content
         product[:list_price]=item_response.at_css("//ListPrice/Amount").content.to_i
-	#sometimes price = list_price and we want to use SalePrice
+	      #sometimes price = list_price and we want to use SalePrice
         product[:price]=item_response.css("//OfferListing//Price//Amount").first.content.to_i
         product[:amount_saved]=item_response.css("//OfferListing//AmountSaved//Amount").first.content.to_i
         product[:percentage_saved]=item_response.css("//OfferListing//PercentageSaved").first.content.to_i
