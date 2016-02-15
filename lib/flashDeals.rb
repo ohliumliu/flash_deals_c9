@@ -97,6 +97,7 @@
         product[:is_supersaver_shipping]=item_response.css("//OfferListing//IsEligibleForSuperSaverShipping").first.content
         product[:title]=item_response.at_css("//ItemAttributes//Title").content
         product[:ASIN] = item_response.at_css("//ASIN").content
+        # merchant has to be handled here because it needs access to xml file
         #merchant = Merchant.find_or_create_by(name: item_response.css("//Manufacturer").first.content)
         merchant = Merchant.where(name: item_response.css("//Manufacturer").first.content).first_or_create(name: item_response.css("//Manufacturer").first.content)
         product[:merchant_id]= merchant.id
