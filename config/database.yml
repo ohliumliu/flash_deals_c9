@@ -21,9 +21,9 @@ test:
   adapter: mysql2
   encoding: utf8
   database: flashdeals_tests
-  username: root
-  password: root
-  host: 127.0.0.1
+  username: <%=ENV['C9_USER']%>
+  #password: root
+  host: <%=ENV['IP']%>
   port: 3306
   pool: 5
   timeout: 5000
