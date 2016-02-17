@@ -30,6 +30,10 @@ gem 'progress_job'
 
 # cron tasks
 gem 'whenever', require: false
+
+
+# mocking and stubbing
+gem 'mocha'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
