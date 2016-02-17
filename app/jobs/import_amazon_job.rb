@@ -39,7 +39,11 @@ class ImportAmazonJob < ProgressJob::Base
               update_progress(step: 1)
             end
           else
-            existing_product.touch
+            #existing_product.touch
+            if existing_product.update(product_hash)
+              puts "one product updated"
+              update_progress(step: 1)
+            end 
           end
         end
       end

@@ -57,13 +57,15 @@ class UserController < ApplicationController
       #flash[:error] = "password not the same"
     end
     render "/user/signup" # redirect_to doesn't work!! how to use session to transfer variables
+    #@products = Product.order('percentage_saved DESC').page 1 
+    #render "/show/show" 
   end
 
   def signin
     @products = Product.all
     if (@user = User.where(:name => params[:username]).first) && (Digest::SHA1.hexdigest(params[:password]) == @user.password)
       session[:user_id] = @user.id
-      flash[:success] = session[:user_id] 
+      #flash[:success] = session[:user_id] 
       user_alerts = Alert.where(user_id: session[:user_id]).all
       respond_to do |format|
         format.html
