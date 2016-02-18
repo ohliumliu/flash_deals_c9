@@ -1,0 +1,20 @@
+# pack-refs with: peeled fully-peeled 
+9e09c1902face386d3167d692c85e95db8b29dd6 refs/heads/gbw-preload-has-many
+dd0b6ead1902e60992e33fdd09bd23ad9a4506d8 refs/heads/gw-clear-search
+47540d21aa81f13998b5550715d7bf6fc5e3624d refs/heads/gw-edit-timeout
+eac0467347c8f79a7a4ade26b66552f2af8f3761 refs/heads/gw-generate-layout
+10c5072d6d5317a47853cfd933b396ab0f84a4b4 refs/heads/gw-paths
+febb3cdaeefb0fcefc41ceb77c8b2d259e29dd85 refs/heads/gw-performance-contributions
+f2074361385b3fbc344db3deba8cce7bdf535be1 refs/heads/gw-permitted-attrs
+f604cd8c5d8e3d730b084665a40d82338071f421 refs/heads/gw-routes-generator
+36be59655c43ca9121c51e58fdc161241e681074 refs/heads/has-many-arrays
+092d55f20ed90ba65c6a26a9dcddab2c3f63482a refs/heads/jro-gem-readme
+111c48cf225c30fd8a6f0b3e2f517613f7af1f2a refs/heads/master
+9f796591dbebc75b2d7cff1198ac23e9e767d620 refs/heads/tc-inflections
+e1d7613caf9830f0aa5e560462742abd28a94f8e refs/heads/tg-search-input
+f7fc63f8d197584b7db1eeb802d09de872b440ab refs/heads/update-template
+b49dc9a59543fedc9a84141a97988e73f2a9e783 refs/tags/v0.1.0
+b7a362b67fb14d5f87e56804cd32510b624221b0 refs/tags/v0.1.1
+^c3311ff41b1f97995ee231cda8d5ecadaaeeeeb4
+e3a906dd3f8503977deff60664b6a4d0be5d48dd refs/tags/v0.1.2
+1024283df83795be459f82aeafd45b982ed1ec6a refs/tags/v0.1.3
