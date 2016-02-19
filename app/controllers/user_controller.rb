@@ -51,12 +51,17 @@ class UserController < ApplicationController
         flash[:success] = "Thank you for registration"
         #SendMailgun.new.send_simple_message
         UserMailer.welcome_email(@user).deliver_later
+        render "/user/after_signup"
+        return
       end
     else
       @user.errors.add(:password, "not the same")  
+      render "/user/signup"
       #flash[:error] = "password not the same"
     end
-    render "/user/signup" # redirect_to doesn't work!! how to use session to transfer variables
+    # redirect_to doesn't carry flash or errors message. render can. But render cannot
+    # update csrf-token in head!! how to use session to transfer variables
+    
     #@products = Product.order('percentage_saved DESC').page 1 
     #render "/show/show" 
   end
@@ -69,7 +74,7 @@ class UserController < ApplicationController
       user_alerts = Alert.where(user_id: session[:user_id]).all
       respond_to do |format|
         format.html
-        format.json {render :json => {user: @user, alerts: user_alerts, status: :signin}}
+        format.json {render :json => {user: @user, alerts: user_alerts, status: :signin, token: session[:_csrf_token]}}
       end
 
     else

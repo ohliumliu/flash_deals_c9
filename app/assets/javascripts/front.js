@@ -188,6 +188,7 @@
 				$("#signupboxTop").html("Welcome " + data.user.name);
 			    $("#signupboxBody").hide();
 			    $("#profileBody").show();
+			    //$('meta[name="csrf-token"]').attr('content', data.token);
 				showAllAlerts(data.alerts);
 			}else if (data.status === "fail")
 			$("#signupboxTop").html("Wrong Password/Username");

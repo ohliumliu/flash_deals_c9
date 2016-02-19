@@ -11,5 +11,6 @@ class ApplicationController < ActionController::Base
       @user_alerts = Alert.where(:user_id => @user_id).all
     end
   end
-
+  
+ 
 end
