@@ -58,8 +58,7 @@ class UserController < ApplicationController
       #flash[:error] = "password not the same"
     end
     render "/user/signup"
-    # redirect_to doesn't carry flash or errors message. render can. But render cannot
-    # update csrf-token in head!! this is fixed by adding csrf-token field in formhow to use session to transfer variables
+    # redirect_to doesn't carry errors message. render can.
     
     #@products = Product.order('percentage_saved DESC').page 1 
     #render "/show/show" 
