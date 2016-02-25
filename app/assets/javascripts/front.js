@@ -151,7 +151,11 @@
 	
 	function submitDeal() {
 		if (trim($("#submitDeal").val())=="") {
-			alert("Please enter a valid Deal");
+			var submitTip = new Opentip($('#submitDeal'), "please submit deals", {delay: 2, showOn: null});
+			submitTip.show();
+			$('#submitDeal').focus(function(){submitTip.hide()});
+			//$("#submitDeal").opentip("Please enter contents", { delay: 2, showOn: null }).show();
+			//alert("Please enter a valid Deal");
 			return 0;
 		}
 		 $.ajax({
@@ -162,7 +166,7 @@
 			 //dataType: 'text',
 			 success: function(data){
 			 	$("#submitDealReturnText").html(data);
-		alert("deals added!");
+				//alert("deals added!");
 			 }
 		}); 		
 	}
