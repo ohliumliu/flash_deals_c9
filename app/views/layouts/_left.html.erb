@@ -11,7 +11,7 @@
 <ul>
 <% @catalogs.each do |catalog| %>
 	<li><a href="/catalogs/<%= catalog.id %>"><%= catalog.name %></li>
-	<li><%= link_to catalog.name, "/catalogs/" + catalog.id.to_s, remote: true %></li>
+	<li><%= link_to catalog.name, "/catalogs/" + catalog.id.to_s + "/" + @dealer_id.to_s, remote: true %></li>
 <% end %>
 </ul>
 

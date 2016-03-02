@@ -17,10 +17,10 @@
 		<div id="headerCategory">
 			<div id="topMenuShim">&nbsp;</div>
 			<div><img border="0" src="http://dealsoutlet.net/media/logo/top_menu_l24.png"/></div>
-			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/1/name/Amazon">Amazon</a></div>
-			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/995/name/Priceline">Priceline</a></div>
-			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/20/name/Orbitz">Orbitz</a></div>
-			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/998/name/Travelocity">Travelocity</a></div>
+			<% @dealers.each do |d| %>
+				<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="/dealers/<%= d.id %>"> <%= d.name %> </a></div>
+			<% end %>
+			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="/dealers/1">Amazon</a></div>
 			<div><img border="0" src="http://dealsoutlet.net/media/logo/top_menu_r24.png"/></div>
 		</div>
 		<% flash.each do |key, value| %>

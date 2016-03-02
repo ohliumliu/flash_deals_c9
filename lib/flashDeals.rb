@@ -101,6 +101,7 @@
         #merchant = Merchant.find_or_create_by(name: item_response.css("//Manufacturer").first.content)
         merchant = Merchant.where(name: item_response.css("//Manufacturer").first.content).first_or_create(name: item_response.css("//Manufacturer").first.content)
         product[:merchant_id]= merchant.id
+        product[:dealer_id] = 1
         sleep(1)
 	return product
       rescue NoMethodError => e

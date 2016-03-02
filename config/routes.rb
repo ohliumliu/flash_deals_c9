@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
 
   get 'catalogs/:catalog_id' => 'show#show'
+  get 'catalogs/:catalog_id/:dealer_id' => 'show#show'
+  get 'dealers/:dealer_id' => 'show#show'
   get 'merchants/:merchant_id' => 'show#show'
   get 'show/search' => 'show#show'
   get 'catalogs' => 'show#list_catalogs'
