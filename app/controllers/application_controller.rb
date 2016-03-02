@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
     @catalogs = Catalog.all
     @travel_sites = TravelSite.all
     @dealers = Dealer.all
-    @dealer_id = 1 unless @dealer_id = params[:dealer_id] 
+    if params[:dealer_id]
+      @dealer_id = params[:dealer_id] 
+      session[:dealer_id] = @dealer_id
+    end
     if @user_id = session[:user_id]
       @user_name = User.find(@user_id).name
       @user_alerts = Alert.where(:user_id => @user_id).all

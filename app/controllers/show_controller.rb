@@ -9,6 +9,9 @@ class ShowController < ApplicationController
         format.js
       end
     elsif params[:dealer_id]
+      debugger
+      @dealer_id = params[:dealer_id]
+      session[:dealer_id] = params[:dealer_id]
       @products = Product.where(dealer_id: params[:dealer_id]).order('percentage_saved DESC')
       @products = @products.page params[:page]
       # this last command gets the products from :page
@@ -22,7 +25,12 @@ class ShowController < ApplicationController
         format.html {render :partial => "show" }
       end
     elsif params[:search]
-      @products = Product.where('title LIKE ?', "%#{params[:search]}%").page params[:page]
+      @products = Product.where('title LIKE ?', "%#{params[:search]}%")
+      debugger
+      if session[:dealer_id] 
+        @products = @products.where(dealer_id: session[:dealer_id])
+      end
+      @products = @products.page params[:page]
       respond_to do |format|
         format.html {render partial: "show"} # index.html.erb
         #format.html {render :partial => "show", :locals => {:products => @products}} # index.html.erb
@@ -31,6 +39,8 @@ class ShowController < ApplicationController
       end
     else
       @products = Product.order('percentage_saved DESC').page params[:page]
+      @dealer_id = nil
+      session[:dealer_id] = nil
     end
   end
 
