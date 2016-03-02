@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210203045) do
+ActiveRecord::Schema.define(version: 20160302035451) do
 
   create_table "alerts", force: :cascade do |t|
     t.string   "content",    limit: 255
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20160210203045) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "content",    limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "dealers", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -84,6 +90,7 @@ ActiveRecord::Schema.define(version: 20160210203045) do
     t.string   "ASIN",                   limit: 255
     t.integer  "merchant_id",            limit: 4
     t.integer  "catalog_id",             limit: 4
+    t.integer  "dealer_id",              limit: 4
   end
 
   add_index "products", ["ASIN"], name: "index_products_on_ASIN", unique: true, using: :btree
