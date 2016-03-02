@@ -2,14 +2,13 @@ class ShowController < ApplicationController
   def show
     if params[:catalog_id]
       @products = Product.where(catalog_id: params[:catalog_id]).order('percentage_saved DESC')
-      @products = @products.where(dealer_id: params[:dealer_id])
+      @products = @products.where(dealer_id: params[:dealer_id]) unless params[:dealer_id].nil?
       @products = @products.page params[:page]
       # this last command gets the products from :page
       respond_to do |format|
         format.js
       end
     elsif params[:dealer_id]
-      debugger
       @dealer_id = params[:dealer_id]
       session[:dealer_id] = params[:dealer_id]
       @products = Product.where(dealer_id: params[:dealer_id]).order('percentage_saved DESC')
@@ -26,7 +25,6 @@ class ShowController < ApplicationController
       end
     elsif params[:search]
       @products = Product.where('title LIKE ?', "%#{params[:search]}%")
-      debugger
       if session[:dealer_id] 
         @products = @products.where(dealer_id: session[:dealer_id])
       end
