@@ -6,6 +6,12 @@
      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
     ----------------------------------------------------------------- 
 
+To start spark with jupyter, run the following in a terminal
+```shell
+PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook --ip=0.0.0.0 --port=8081 --no-browser" pyspark 
+```
+
+
 
 Welcome to your Rails project on Cloud9 IDE!
 
