@@ -16,6 +16,11 @@ PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook --ip=0.0.0.0 
 
 ```
 
+To submit jobs with jdbc, run
+```shell
+spark-submit --jars mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar foo.py
+```
+
 
 
 Welcome to your Rails project on Cloud9 IDE!
