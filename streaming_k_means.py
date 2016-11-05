@@ -35,19 +35,15 @@ if __name__ == "__main__":
     def parse(lp):
         label = float(lp[lp.find('(') + 1: lp.find(')')])
         vec = Vectors.dense(lp[lp.find('[') + 1: lp.find(']')].split(','))
-
         return LabeledPoint(label, vec)
 
     trainingData = sc.textFile("spark-2.0.1-bin-hadoop2.7/data/mllib/kmeans_data.txt")\
         .map(lambda line: Vectors.dense([float(x) for x in line.strip().split(' ')]))
 
-    testingData = sc.textFile("spark-2.0.1-bin-hadoop2.7/data/mllib/streaming_kmeans_data_test.txt").map(parse)
 
     trainingQueue = [trainingData]
-    testingQueue = [testingData]
 
     trainingStream = ssc.queueStream(trainingQueue)
-    #testingStream = ssc.queueStream(testingQueue)
     testingStream = ssc.textFileStream('history').map(parse)
 
     # We create a model with random clusters and specify the number of clusters to find
