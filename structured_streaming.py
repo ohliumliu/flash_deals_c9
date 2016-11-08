@@ -30,6 +30,7 @@
 from __future__ import print_function
 
 import sys
+import time
 
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType
@@ -68,7 +69,14 @@ if __name__ == "__main__":
     query = wordCounts\
         .writeStream\
         .outputMode('complete')\
-        .format('console')\
+        .format('memory')\
+        .queryName('table')\
         .start()
+    
+    # TODO
+    # set sink to be the memory and apply model on that
+    while True:
+        spark.sql("select * from table").show()
+        time.sleep(30)
 
     query.awaitTermination()
