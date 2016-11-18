@@ -50,14 +50,12 @@ if __name__ == "__main__":
             spark = getSparkSessionInstance(rdd.context.getConf())
 
             # Convert RDD[String] to RDD[Row] to DataFrame
-            rowRdd = rdd.map(lambda w: Row(title=w[1]))
+            rowRdd = rdd.map(lambda w: Row(id = w[0], title=w[1]))
             wordsDataFrame = spark.createDataFrame(rowRdd)
-
-
             
             # load model pipeline
             model = PipelineModel.load('kmeans')
-            prediction = model.transform(wordsDataFrame).select("6_kmeans")
+            prediction = model.transform(wordsDataFrame).select("id", "6_kmeans")
             prediction.show(5)
         except:
             pass

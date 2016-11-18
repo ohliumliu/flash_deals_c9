@@ -95,16 +95,16 @@ class ProductsController < ApplicationController
   
   # save click history
   def product_click
-    # check if the product is already in products_cluster
     
+    # check if the product is already in products_cluster
+    id = 2245
+    if (1>2) #Product_cluster.exists?(id)
+      # pass
+    else
     # save product info to trigger streaming
-    uid = 53
-    title = "a b c"
-    out_dir = "history/"
-    out_str = "(" + uid.to_s() + ")" + "[" + title + "]"
-    out_file = File.new( out_dir + Time.now.getutc.to_i().to_s(), "w")
-    out_file.write(out_str)
-    out_file.close()
+      @product = Product.find(id)
+      @product.save_for_kmeans()
+    end
     
     # save click_history
   end
