@@ -97,7 +97,8 @@ class ProductsController < ApplicationController
   def product_click
     
     # check if the product is already in products_cluster
-    id = 2245 # should be from param
+    id = 2245 # should be from params
+    uid = 11 # should be from params
     if ProductCluster.exists?(product_id: id)
       # pass
     else
@@ -107,5 +108,9 @@ class ProductsController < ApplicationController
     end
     
     # save click_history
+    ch = ClickHistory.new()
+    ch.user_id = uid
+    ch.product_id = id
+    ch.save!()
   end
 end
