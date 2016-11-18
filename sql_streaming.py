@@ -56,7 +56,16 @@ if __name__ == "__main__":
             # load model pipeline
             model = PipelineModel.load('kmeans')
             prediction = model.transform(wordsDataFrame).select("id", "6_kmeans")
+            
+            # save prediction to product_cluster table
+            url = "jdbc:mysql://localhost:3306/flashdeals"
+            properties = {
+                "user": "root",
+                "password": ""
+            }
+            prediction.write.jdbc(url=url, table="product_clusters", mode = "overwrite", properties=properties)
             prediction.show(5)
+            
         except:
             pass
 
