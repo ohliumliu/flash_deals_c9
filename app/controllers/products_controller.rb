@@ -97,8 +97,8 @@ class ProductsController < ApplicationController
   def product_click
     
     # check if the product is already in products_cluster
-    id = 2245
-    if (1>2) #Product_cluster.exists?(id)
+    id = 2245 # should be from param
+    if ProductCluster.exists?(product_id: id)
       # pass
     else
     # save product info to trigger streaming
