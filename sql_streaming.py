@@ -20,6 +20,8 @@ from pyspark.ml.feature import HashingTF, IDF
 from pyspark.ml.feature import Normalizer
 from pyspark.ml.clustering import KMeans
 
+from datetime import date, datetime
+
 def parse(lp):
     # format: (uid) [title]
     uid = lp[lp.find('(') + 1: lp.find(')')]
@@ -63,8 +65,20 @@ if __name__ == "__main__":
                 "user": "root",
                 "password": ""
             }
-            prediction.write.jdbc(url=url, table="product_clusters", mode = "overwrite", properties=properties)
+            
             prediction.show(5)
+            
+            product_cluster_df = spark.read.format("jdbc").options(
+            url = url,
+            driver="com.mysql.jdbc.Driver",
+            dbtable="product_clusters",
+            user="root",
+            password=""
+            ).load()
+                        
+            new_id = product_cluster_df.agg({"id": "max"}).collect()[0]['max(id)'] + 1
+            new_cluster_df = spark.createDataFrame([Row(id=new_id, cluster=99, created_at=datetime.now(), updated_at=datetime.now())])
+            new_cluster_df.write.jdbc(url=url, table="product_clusters", mode = "append", properties=properties) 
             
         except:
             pass
