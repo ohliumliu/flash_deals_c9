@@ -50,7 +50,7 @@ if __name__ == "__main__":
         try:
             # Get the singleton instance of SparkSession
             spark = getSparkSessionInstance(rdd.context.getConf())
-
+    
             # Convert RDD[String] to RDD[Row] to DataFrame
             rowRdd = rdd.map(lambda w: Row(id = w[0], title=w[1]))
             wordsDataFrame = spark.createDataFrame(rowRdd)
@@ -59,6 +59,10 @@ if __name__ == "__main__":
             model = PipelineModel.load('kmeans')
             prediction = model.transform(wordsDataFrame).select("id", "6_kmeans")
             
+            
+            prediction.show(5)
+            
+        
             # save prediction to product_cluster table
             url = "jdbc:mysql://localhost:3306/flashdeals"
             properties = {
@@ -66,22 +70,26 @@ if __name__ == "__main__":
                 "password": ""
             }
             
-            prediction.show(5)
             
-            product_cluster_df = spark.read.format("jdbc").options(
-            url = url,
-            driver="com.mysql.jdbc.Driver",
-            dbtable="product_clusters",
-            user="root",
-            password=""
-            ).load()
+            # product_cluster_df = spark.read.format("jdbc").options(
+            # url = url,
+            # driver="com.mysql.jdbc.Driver",
+            # dbtable="product_clusters",
+            # user="root",
+            # password=""
+            # ).load()
+            
+            product_cluster_df = spark.read.jdbc(url=url, table="product_clusters", properties=properties)
+            
+            #prediction.show(5)
+            product_cluster_df.show(5)
                         
             new_id = product_cluster_df.agg({"id": "max"}).collect()[0]['max(id)'] + 1
             new_cluster_df = spark.createDataFrame([Row(id=new_id, cluster=99, created_at=datetime.now(), updated_at=datetime.now())])
             new_cluster_df.write.jdbc(url=url, table="product_clusters", mode = "append", properties=properties) 
-            
         except:
             pass
+            
 
     words.foreachRDD(process)
     ssc.start()
