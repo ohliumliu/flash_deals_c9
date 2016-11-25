@@ -85,7 +85,11 @@ if __name__ == "__main__":
             product_cluster_df.show(5)
                         
             new_id = product_cluster_df.agg({"id": "max"}).collect()[0]['max(id)'] + 1
-            new_cluster_df = spark.createDataFrame([Row(id=new_id, cluster=99, created_at=datetime.now(), updated_at=datetime.now())])
+            new_cluster_df = spark.createDataFrame([Row(id=new_id, 
+                                                    product_id = prediction.first().id,
+                                                    cluster=prediction.first()["6_kmeans"],
+                                                    created_at=datetime.now(), 
+                                                    updated_at=datetime.now())])
             new_cluster_df.write.jdbc(url=url, table="product_clusters", mode = "append", properties=properties) 
         except:
             pass
