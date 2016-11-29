@@ -97,8 +97,8 @@ class ProductsController < ApplicationController
   def product_click
     
     # check if the product is already in products_cluster
-    id = 2246 # should be from params
-    uid = 11 # should be from params
+    id = params[:id].to_i # should be from params
+    uid = params[:uid].to_i # should be from params
     if ProductCluster.exists?(product_id: id)
       # pass
     else
