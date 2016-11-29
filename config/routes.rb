@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   
   post "/products/import"
   get  "/products/count"
-  get '/products/:id/:uid' => 'products#product_click'
+  get '/products/product_click' => 'products#product_click'
   post "/admin/products/import" => "admin/products#import"
   #resources :merchants
 

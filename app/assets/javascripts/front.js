@@ -236,3 +236,46 @@
 		}); 
 		}
 	}
+	
+	function click_history(pid, uid){
+		alert("save click history");
+		uid = 24;
+		$.ajax({
+			method: "GET",
+        	beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        	url: "products/product_click.json",
+        	data: {
+        		"id": pid,
+        		"uid": uid
+        	},
+        	dataType: "json",
+        	success: function(data){
+             //process data
+            	alert(data);
+        	}
+			
+		});
+		return false;
+	}
+
+	function click_history_factory(product_id, uid){
+		return function(){
+		uid = 24;
+		alert("save click history");
+		$.ajax({
+			method: "GET",
+        	beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        	url: "products/product_click.json",
+        	data: {
+        		"id": product_id,
+        		"uid": uid
+        	},
+        	dataType: "json",
+        	success: function(data){
+             //process data
+            	alert(data);
+        	}
+			
+		});
+		}
+	}

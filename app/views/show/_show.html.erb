@@ -18,7 +18,8 @@
 	    <tr>
 		<td colspan=2>
 			<b class="productListName">
-				<a href=<%= product.detail_page_url %>  target="_blank" rel="nofollow"><%= product.title %></a>
+				<a href=<%= product.detail_page_url %> target="_blank" rel="nofollow"><%= product.title %></a>
+				<a href=<%= product.detail_page_url %> onclick="click_history(<%= product.id %>, 24);"><%= product.title %></a>
 			</b>
 		</td>
             </tr>

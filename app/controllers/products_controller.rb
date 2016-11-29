@@ -112,5 +112,9 @@ class ProductsController < ApplicationController
     ch.user_id = uid
     ch.product_id = id
     ch.save!()
+    
+    respond_to do |format|
+       format.json {render json: "ok"}
+    end
   end
 end
