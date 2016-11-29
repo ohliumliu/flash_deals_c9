@@ -255,6 +255,7 @@
         	}
 			
 		});
+		alert("saved.");
 		return false;
 	}
 
