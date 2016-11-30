@@ -239,7 +239,7 @@
 	
 	function click_history(pid, uid){
 		alert("save click history");
-		uid = 24;
+		//uid = 24;
 		$.ajax({
 			method: "GET",
         	beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},

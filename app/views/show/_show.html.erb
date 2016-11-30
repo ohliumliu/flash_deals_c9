@@ -18,7 +18,7 @@
 	    <tr>
 		<td colspan=2>
 			<b class="productListName">
-				<a href=<%= product.detail_page_url %> onclick="click_history(<%= product.id %>, 24);" target="_blank" rel="nofollow"><%= product.title %></a>
+				<a href=<%= product.detail_page_url %> onclick="click_history(<%= product.id %>, <%= !session[:user_id] ? 0 : session[:user_id] %>);" target="_blank" rel="nofollow"><%= product.title %></a>
 			</b>
 		</td>
             </tr>
