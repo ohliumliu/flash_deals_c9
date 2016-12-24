@@ -251,7 +251,7 @@
         	dataType: "json",
         	success: function(data){
              //process data
-            	alert(data);
+            	alert(data.result);
         	}
 			
 		});
