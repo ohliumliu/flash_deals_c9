@@ -5,6 +5,15 @@ This project is a practice to learn the following web technologies.
 * Ajax and javascript for communication between front end and back end.
 * Use Apache Spark to collect user click history and make prediction.
 
+### Features implemented
+
+* A product database to retrieve information using Amazon API.
+* Show products for certain categories or vendors.
+* User registration and login.
+* Add, remove alerts by user.
+* Automatically email users contents related to their alerts.
+* Backend administration interface.
+* Collect user click history and make recommendations based on the click history (see issue 1).
 ### Some notes on running rails
 
 ### Some notes on running spark
