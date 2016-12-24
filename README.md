@@ -16,6 +16,7 @@ This project is a practice to learn the following web technologies.
 * Collect user click history and make recommendations based on the click history (see issue #1).
 
 ### Some notes on running rails
+* rails s -p $PORT -b $IP
 
 ### Some notes on running spark
 
