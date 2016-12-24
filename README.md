@@ -13,7 +13,8 @@ This project is a practice to learn the following web technologies.
 * Add, remove alerts by user.
 * Automatically email users contents related to their alerts.
 * Backend administration interface.
-* Collect user click history and make recommendations based on the click history (see issue 1).
+* Collect user click history and make recommendations based on the click history (see issue #1).
+
 ### Some notes on running rails
 
 ### Some notes on running spark
