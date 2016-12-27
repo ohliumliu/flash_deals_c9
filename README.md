@@ -4,6 +4,7 @@ This project is a practice to learn the following web technologies.
 * Ruby on Rails framework for back end.
 * Ajax and javascript for communication between front end and back end.
 * Use Apache Spark to collect user click history and make prediction.
+* It also includes some Spark practices, for example, wikipedia data analysis.
 
 ### Features implemented
 
@@ -22,7 +23,7 @@ This project is a practice to learn the following web technologies.
 ### Some notes on running spark
 
 
-To start spark with jupyter, run the following in a terminal
+* To start spark with jupyter, run the following in a terminal
 (default configuration is in conf/spark-default.conf)
 ```shell
 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook --ip=0.0.0.0 --port=8081 --no-browser" pyspark 
@@ -32,8 +33,10 @@ or better
 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook --ip=0.0.0.0 --port=8081 --no-browser" pyspark --jars mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar --driver-class-path mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar
 
 ```
+  * To access jupyter, open http://flash-deals-c9-ohliumliu.c9users.io:8081/tree
+  * To access spark ui, open http://flash-deals-c9-ohliumliu.c9users.io:8082 
 
-To submit jobs with jdbc, run
+* To submit jobs with jdbc, run
 ```shell
 spark-submit --jars mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar --driver-class-path mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar sql_streaming.py 
 ```
